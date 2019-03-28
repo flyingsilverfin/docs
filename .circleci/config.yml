@@ -94,7 +94,7 @@ jobs:
       - install-bazel-linux-rbe
       - checkout
       - run-grakn-server
-      - run: for i in {1..50}; do bazel test //test/example/python:phone-calls --test_output=errors; done;
+      - run: for i in {1..50}; do bazel test //test/example/python:phone-calls --test_output=errors --nocache_test_results; done;
       - run: bazel test //test/example/python:social-network --test_output=errors
 
   release-staging:
