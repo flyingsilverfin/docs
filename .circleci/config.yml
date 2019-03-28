@@ -103,6 +103,10 @@ jobs:
               echo "Error";
               break;
             fi;
+            ./dist/grakn-core-all-linux/grakn server stop
+            rm -rf dist/grakn*
+            tar -xvzf bazel-genfiles/external/graknlabs_grakn_core/grakn-core-all-linux.tar.gz -C ./dist/
+            nohup ./dist/grakn-core-all-linux/grakn server start
           done;
           exit $RET;
       - run: bazel test //test/example/python:social-network --test_output=errors
