@@ -16,17 +16,17 @@ class PhoneCallsTest(unittest.TestCase):
                         transaction.commit()
                         print("Loaded the phone_calls schema")
 
-    def test_a_phone_calls_first_query(self):
-        import phone_calls_first_query
-
-    def test_b_phone_calls_second_query(self):
-        import phone_calls_second_query
-
-    def test_c_phone_calls_third_query(self):
-        import phone_calls_third_query
-
-    def test_d_phone_calls_forth_query(self):
-        import phone_calls_forth_query
+    # def test_a_phone_calls_first_query(self):
+    #     import phone_calls_first_query
+    #
+    # def test_b_phone_calls_second_query(self):
+    #     import phone_calls_second_query
+    #
+    # def test_c_phone_calls_third_query(self):
+    #     import phone_calls_third_query
+    #
+    # def test_d_phone_calls_forth_query(self):
+    #     import phone_calls_forth_query
 
     def test_e_phone_calls_fifth_query(self):
         import phone_calls_fifth_query
