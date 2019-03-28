@@ -94,7 +94,17 @@ jobs:
       - install-bazel-linux-rbe
       - checkout
       - run-grakn-server
-      - run: for i in {1..50}; do bazel test //test/example/python:phone-calls --test_output=errors --nocache_test_results; done;
+      - run: |
+          RET=0
+          for i in {1..50}; do
+            bazel test //test/example/python:phone-calls --test_output=errors --nocache_test_results;
+            RET=$?;
+            if [ $RET -ne 0 ]; then
+              echo "Error";
+              break;
+            fi;
+          done;
+          exit $RET;
       - run: bazel test //test/example/python:social-network --test_output=errors
 
   release-staging:
