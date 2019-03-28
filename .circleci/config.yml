@@ -111,6 +111,14 @@ jobs:
           exit $RET;
       - run: bazel test //test/example/python:social-network --test_output=errors
 
+  test-links:
+    machine: true
+    working_directory: ~/docs
+    steps:
+      - install-bazel-linux-rbe
+      - checkout
+      - run: bazel test //test/links:test --test_output=errors
+
   release-staging:
     machine: true
     working_directory: ~/docs
@@ -136,6 +144,7 @@ workflows:
       - test-example-java
       - test-example-nodejs
       - test-example-python
+      - test-links
       - release-staging:
           filters:
             branches:
@@ -147,6 +156,7 @@ workflows:
             - test-example-java
             - test-example-nodejs
             - test-example-python
+            - test-links
       - release-production:
           filters:
             branches:
@@ -158,3 +168,4 @@ workflows:
             - test-example-java
             - test-example-nodejs
             - test-example-python
+            - test-links
